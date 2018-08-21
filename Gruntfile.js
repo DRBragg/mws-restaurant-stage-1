@@ -23,21 +23,19 @@ module.exports = function(grunt) {
           engine: 'im',
           sizes: [
             {
-              width: 640,
-              suffix: '_medium_2x',
-              quality: 60
-            }, {
-              width: 320,
-              suffix: '_small_2x',
-              quality: 60
-            }, {
-              width: 320,
-              suffix: '_medium_1x',
-              quality: 60
-            }, {
-              width: 160,
-              suffix: '_small_1x',
-              quality: 60
+              width: '320px',
+              suffix: '_sm',
+              quality: 30
+            },
+            {
+              width: '560px',
+              suffix: '_md',
+              quality: 30
+            },
+            {
+              width: '800px',
+              suffix: '_lg',
+              quality: 30
             }
           ]
         },
@@ -50,8 +48,8 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['*.{gif,jpg,png}'],
-            cwd: 'img/',
-            dest: 'responsive-images/'
+            cwd: 'img_src/',
+            dest: 'img/'
           }
         ]
       }
@@ -60,7 +58,7 @@ module.exports = function(grunt) {
     /* Clear out the images directory if it exists */
     clean: {
       dev: {
-        src: ['responsive-images/']
+        src: ['img/']
       }
     },
 
@@ -68,7 +66,7 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['responsive-images/']
+          create: ['img/']
         }
       }
     },
@@ -79,8 +77,8 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: 'images_src/fixed/*.{gif,jpg,png}',
-            dest: 'images/'
+            src: 'img_src/fixed/*.{gif,jpg,png}',
+            dest: 'img/'
           }
         ]
       }
